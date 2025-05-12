@@ -121,6 +121,7 @@ fin = int(input("Ingresa el final del rango: "))
 print(f"Números primos entre {inicio} y {fin}:")
 primos_en_rango(inicio, fin)
 
+
 #Simular un temporizador (contar regresivamente desde N)
 
 import time
