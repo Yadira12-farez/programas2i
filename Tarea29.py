@@ -103,36 +103,33 @@ fibonacci_hasta(limite)
 
 #Encontrar números primos en un rango dado.
 
-def es_primo(n):
-    if n <= 1:
+def es_primo(num):
+    if num < 2:
         return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
             return False
     return True
+inicio = int(input("Desde qué número quieres empezar: "))
+fin = int(input("Hasta qué número quieres llegar: "))
 
-def primos_en_rango(inicio, fin):
-    for num in range(inicio, fin + 1):
-        if es_primo(num):
-            print(num, end=' ')
+print("Números primos en ese rango:")
+for n in range(inicio, fin + 1):
+    if es_primo(n):
+        print(n)
 
-inicio = int(input("Ingresa el inicio del rango: "))
-fin = int(input("Ingresa el final del rango: "))
-print(f"Números primos entre {inicio} y {fin}:")
-primos_en_rango(inicio, fin)
-
-
-#Simular un temporizador (contar regresivamente desde N)
+#simular un temporizador(contar regresivamente desde N )
 
 import time
-def temporizador(n):
+def temporizador_regresivo(n):
     while n > 0:
-        print(n)
-        time.sleep(1)  
+        print(f"Tiempo restante: {n} segundos")
+        time.sleep(1)
         n -= 1
     print("¡Tiempo terminado!")
-n = int(input("Ingresa un número para iniciar la cuenta regresiva: "))
-temporizador(n)
+N = int(input("Ingresa el número de segundos para el temporizador: "))
+temporizador_regresivo(N)
+
 
 #Leer archivos línea por línea hasta fin de archivo.
 
