@@ -101,6 +101,10 @@ limite = int(input("Ingresa el valor límite para la secuencia de Fibonacci: "))
 print("Secuencia de Fibonacci:")
 fibonacci_hasta(limite)
 
+
+
+
+
 #Encontrar números primos en un rango dado.
 
 def es_primo(num):
@@ -117,6 +121,8 @@ print("Números primos en ese rango:")
 for n in range(inicio, fin + 1):
     if es_primo(n):
         print(n)
+
+
 
 
 #simular un temporizador(contar regresivamente desde N )
@@ -151,3 +157,7 @@ contador = 0
 while contador <= 5:
     print("numero : ", contador)
     contador += 1
+
+
+
+
