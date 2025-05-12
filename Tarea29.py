@@ -118,6 +118,7 @@ for n in range(inicio, fin + 1):
     if es_primo(n):
         print(n)
 
+
 #simular un temporizador(contar regresivamente desde N )
 
 import time
