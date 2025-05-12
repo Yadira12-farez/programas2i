@@ -61,15 +61,89 @@ while True:
 
 #Calcular la raíz cuadrada por aproximación (método babilónico).
 
+def raiz_babilonica(numero, tolerancia=1e-10, max_iter=1000):
+    if numero < 0:
+        raise ValueError 
+    x = numero / 2.0
+    for i in range(max_iter):
+        x_nuevo = 0.5 * (x + numero / x)
+
+        if abs(x - x_nuevo) < tolerancia:
+            break
+        x = x_nuevo
+    return x
+
+if __name__ == "__main__":
+    try:
+        numero = float(input("Ingresa un número positivo : "))
+        resultado = raiz_babilonica(numero)
+        print(f"La raíz cuadrada aproximada de {numero} es: {resultado}")
+    
+    except ValueError as e:
+        print(f"Error: {e}")
+
+
 #Contar dígitos de un número entero (ej: 456 → 3).
+
+def contar_digitos(numero):
+    return len(str(abs(numero))) 
+num = int(input("Ingresa un número entero: "))
+print(f"El número {num} tiene {contar_digitos(num)} dígitos.")
 
 #Generar la secuencia de Fibonacci hasta un límite.
 
+def fibonacci_hasta(limite):
+    a, b = 0, 1
+    while a <= limite:
+        print(a, end=' ')
+        a, b = b, a + b
+limite = int(input("Ingresa el valor límite para la secuencia de Fibonacci: "))
+print("Secuencia de Fibonacci:")
+fibonacci_hasta(limite)
+
 #Encontrar números primos en un rango dado.
 
-#Simular un temporizador (contar regresivamente desde N).
+def es_primo(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+def primos_en_rango(inicio, fin):
+    for num in range(inicio, fin + 1):
+        if es_primo(num):
+            print(num, end=' ')
+
+inicio = int(input("Ingresa el inicio del rango: "))
+fin = int(input("Ingresa el final del rango: "))
+print(f"Números primos entre {inicio} y {fin}:")
+primos_en_rango(inicio, fin)
+
+#Simular un temporizador (contar regresivamente desde N)
+
+import time
+def temporizador(n):
+    while n > 0:
+        print(n)
+        time.sleep(1)  
+        n -= 1
+    print("¡Tiempo terminado!")
+n = int(input("Ingresa un número para iniciar la cuenta regresiva: "))
+temporizador(n)
 
 #Leer archivos línea por línea hasta fin de archivo.
+
+def leer_lineas(nombre_archivo):
+    try:
+        with open(nombre_archivo, 'r') as archivo:
+            for linea in archivo:
+                print(linea.strip())
+    except FileNotFoundError:
+        print("Archivo no encontrado.")
+archivo = input("Ingresa el nombre del archivo a leer (con extensión): ")
+leer_lineas(archivo)
 
 #mientras - while
 #visualizar los 5 primero numero con mientras = while 
